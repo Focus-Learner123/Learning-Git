@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            justify-content: center;
+            align-items: center;}
+            
+        form {
+            margin-left: 400px;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid black;
+        }
+        h2 {
+            text-align: center;
+        }
+        input[type="text"], input[type="password"], input[type="email"], input[type="date"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid black;
+            box-sizing: border-box;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 1%;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+        }
+        button[type="button"] {
+            background-color: #f44336;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form onsubmit="return validateForm()">
+   
+        <h2>Registration Form</h2>
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter username" required>
+       
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter password" required>
+       
+        <label for="confirmPassword">Confirm Password:</label>
+        <input type="password" id="confirmPassword" placeholder="Re-enter password" required>
+       
+        <label for="email">Email:</label>
+        <input type="email" id="email" placeholder="Enter email" required>
+       
+        <label for="dob">Date of Birth:</label>
+        <input type="date" id="dob" required>
+       
+        <label>Gender:</label>
+        <input type="radio" id="male" name="gender">
+        <label for="male">Male</label>  
+        <input type="radio" id="female" name="gender" value="Female">
+        <label for="female">Female</label>
+        <br><br>
+       
+        <label>Languages Known:</label>
+        <input type="checkbox" id="english" name="language" value="English">
+        <label for="english">English</label>
+        <input type="checkbox" id="hindi" name="language" value="Hindi">
+        <label for="hindi">Hindi</label>
+        <input type="checkbox" id="telugu" name="language" value="telugu">
+        <label for="telugu">Spanish</label>
+        <br><br>
+       
+        <button type="submit">Submit</button>
+        <button type="button">Cancel</button>
+    </form>
+
+    <script>
+        function validateForm() {
+            const password = document.getElementById("password").value;
+            const confirmPassword = document.getElementById("confirmPassword").value;
+
+            if (password.length <= 7) {
+                alert("Password must be at least 8 characters long.");
+                return false;
+            }
+            if (password !== confirmPassword) {
+                alert("Passwords do not match.");
+                return false;
+            }
+
+            alert("Registration successful.");
+
+            // Aman here is the Another Way for Link the pages
+            window.location.href = "welcome.html";
+            return false;
+        }
+    </script>
+
+</body>
+</html>
